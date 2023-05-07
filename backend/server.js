@@ -1,5 +1,5 @@
 const app = require("./app");
-const Razorpay = require("razorpay");
+//const Razorpay = require("razorpay");
 
 
 const { connectDatabase } = require("./config/database");
@@ -19,10 +19,10 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 // Connecting to database
 connectDatabase();
 
-const instance = new Razorpay({
+/*const instance = new Razorpay({
   key_id: process.env.RAZORPAY_API_KEY,
   key_secret: process.env.RAZORPAY_APT_SECRET,
-});
+});*/
 
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is working on port ${process.env.PORT}`);
@@ -38,4 +38,4 @@ process.on("unhandledRejection", (err) => {
   });
 });
 
-module.exports = instance;
+//module.exports = instance;
