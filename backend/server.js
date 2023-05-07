@@ -1,6 +1,6 @@
 const app = require("./app");
 const Razorpay = require("razorpay");
-const dotenv = require("dotenv");
+
 
 const { connectDatabase } = require("./config/database");
 
@@ -12,8 +12,9 @@ process.on("uncaughtException", (err) => {
 });
 
 // Config
-
-dotenv.config({ path: "backend/config/config.env" });
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config({ path: "backend/config/config.env" });
+}
 
 // Connecting to database
 connectDatabase();
